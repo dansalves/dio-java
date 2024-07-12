@@ -28,10 +28,10 @@ public class App {
       System.out.println("Iteração de numero: "+num);
       num++;
     }
-
+    
     //do while
     int x=0;
-    
+
     do{
       System.out.println("Iteração de número: "+x);
       x++;
