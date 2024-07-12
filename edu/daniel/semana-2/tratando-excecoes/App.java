@@ -13,23 +13,24 @@ public class App {
         
         try {
         
-        Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
-        System.out.println("Digite seu nome: ");
-        String nome = scanner.next();
+            Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
+            System.out.println("Digite seu nome: ");
+            String nome = scanner.next();
+            
+            System.out.println("Digite seu sobre nome: ");
+            String sobrenome = scanner.next();
+
+            System.out.println("Digite sua idade: ");
+            int idade = scanner.nextInt();
+
+            System.out.println("Digite sua altura: ");
+            double altura = scanner.nextDouble();
+
+            System.out.println("Olá, meu nome é "+ nome +
+            " "+ sobrenome +"e eu tenho "+ idade +
+            " anos. Minha altura é de "+ altura +"metros.");
+            scanner.close();
         
-        System.out.println("Digite seu sobre nome: ");
-        String sobrenome = scanner.next();
-
-        System.out.println("Digite sua idade: ");
-        int idade = scanner.nextInt();
-
-        System.out.println("Digite sua altura: ");
-        double altura = scanner.nextDouble();
-
-        System.out.println("Olá, meu nome é "+ nome +
-        " "+ sobrenome +"e eu tenho "+ idade +
-        " anos. Minha altura é de "+ altura +"metros.");
-        scanner.close();
         }catch (InputMismatchException e){
             System.out.println("O campo de idade precisa ser numérico! Separador de casa decimais deve ser um '.' !");
         }
@@ -47,8 +48,12 @@ public class App {
          * possivel criar excecoes customizadas de acordo com as regras de negocio desejadas.
          */
 
-        String cepFormatado = formatarCep ("23954827");
-    
+        try {
+            String cepFormatado = formatarCep ("23954827");
+            System.out.println(cepFormatado);
+        } catch (CepInvalidoException e) {
+            System.out.println("O cep nao corresponde a formataçao correta.");
+        }
     }
 
     static String formatarCep (String cep) throws CepInvalidoException{
